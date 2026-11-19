@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Puffer Party Rare Answer Finder",
+  "version": "1.0.0",
+  "description": "Detects category prompts on krillion.io and displays rare AI-generated answers.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://krillion.io/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Puffer Party AI Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://krillion.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
